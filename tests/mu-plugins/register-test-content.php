@@ -40,13 +40,13 @@ function register_test_content() : void {
 		'supports' => [ 'title', 'editor' ],
 	] );
 
-	// Public hierarchical taxonomy, for the nested and collapsed display modes.
-	register_taxonomy( 'qf_topic', [ 'post' ], [
+	// Shared taxonomy used to prove that term choices respect a loop's post type.
+	register_taxonomy( 'qf_topic', [ 'post', 'qf_doc' ], [
 		'label' => 'Topics',
 		'public' => true,
 		'publicly_queryable' => true,
 		'show_in_rest' => true,
-		'hierarchical' => true,
+		'hierarchical' => false,
 	] );
 
 	// Private taxonomy, for the same reason.
